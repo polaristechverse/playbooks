@@ -1,13 +1,13 @@
+---
 - name: Install nginx
   hosts: web
   become: true
   tasks:
     - name: Install package
       ansible.builtin.apt:
-        name: "{{ package_name }}"
+        name: nginx
         state: present
         update_cache: true
-
     - name: Ensure service is running
       ansible.builtin.service:
         name: "{{ package_name }}"
